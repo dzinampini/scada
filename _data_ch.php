@@ -3,40 +3,13 @@
     $ch_query = "SELECT * FROM chillers ORDER BY id DESC  LIMIT 1 ";
     $ch_values=mysqli_query($con, $ch_query);
     $row=mysqli_fetch_array($ch_values);
-    $coa = $row['a'];
-    $cob = $row['b'];
-    $coc = $row['c'];
-    $cod = $row['d'];
     $cosa = $row['aa'];
     $cosb = $row['bb'];
     $cosc = $row['cc'];
     $cosd = $row['dd']; 
-
-
-    $red = 'style="background-color:red;"'; 
-    $green = 'style="background-color:green;"'; 
+    
     $red_text = 'style="color:red";';
     $green_text = 'style="color:green";'; 
-
-    if($coa < 20 ) 
-      $sta = $red; 
-    else
-      $sta = $green; 
-
-    if($cob < 20 ) 
-      $stb = $red; 
-    else
-      $stb = $green; 
-
-    if($coc < 20 ) 
-      $stc = $red; 
-    else
-      $stc = $green; 
-
-    if($cod < 20 ) 
-      $std = $red; 
-    else
-      $std = $green; 
 
     if ($cosa == 0){
       $cosa = 'OFF';
@@ -80,27 +53,23 @@
 
 <div class="row">
   <div class="col-md-3">
-    <label>A</label>
+    <label>1</label>
     <br>
     <label <?php echo $stcoa; ?>><?php echo $cosa; ?></label>
-    <input name="" value="<?php echo $coa; ?> &#8451;" class="form-control" type="text" <?php echo $sta; ?>>
   </div>
   <div class="col-md-3">
-    <label>B</label>
+    <label>2</label>
     <br>
     <label <?php echo $stcob; ?>><?php echo $cosb; ?></label>
-    <input name="" value="<?php echo $cob; ?> &#8451;" class="form-control" type="text" <?php echo $stb; ?>>
   </div>
   <div class="col-md-3">
-    <label>C</label>
+    <label>3</label>
     <br>
     <label <?php echo $stcoc; ?>><?php echo $cosc; ?></label>
-    <input name="" value="<?php echo $coc; ?> &#8451;" class="form-control" type="text" <?php echo $stc; ?>>
   </div> 
   <div class="col-md-3">
-    <label>D</label>
+    <label>4</label>
     <br>
     <label <?php echo $stcod; ?>><?php echo $cosd; ?></label>
-    <input name="" value="<?php echo $cod; ?> &#8451;" class="form-control" type="text" <?php echo $std; ?>>
   </div> 
 </div>

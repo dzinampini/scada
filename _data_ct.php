@@ -33,19 +33,19 @@
 
 <div class="row">
   <div class="col-md-3">
-    <label>Tank A</label>
+    <label>Caustic A</label>
     <input name="" value="<?php echo $wta; ?> litres" class="form-control" type="text" <?php echo $sta; ?>>
   </div>
   <div class="col-md-3">
-    <label>Tank B</label>
+    <label>Caustic B</label>
     <input name="" value="<?php echo $wtb; ?> litres" class="form-control" type="text" <?php echo $stb; ?>>
   </div>
   <div class="col-md-3">
-    <label>Tank C</label>
+    <label>Acid A</label>
     <input name="" value="<?php echo $wtc; ?> litres" class="form-control" type="text" <?php echo $stc; ?>>
   </div> 
   <div class="col-md-3">
-    <label>Tank D</label>
+    <label>Acid B</label>
     <input name="" value="<?php echo $wtd; ?> litres" class="form-control" type="text" <?php echo $std; ?>>
   </div> 
 </div>

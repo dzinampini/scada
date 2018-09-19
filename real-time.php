@@ -32,6 +32,14 @@
       <div id="co-data"></div>
     </div>
   </div>
+
+  <div class="row item-view">
+    <div class="col-md-12">
+      <button type="button" id="ws" class="btn btn-primary form-control">Water Supply</button>
+      <br><br>
+      <div id="ws-data"></div>
+    </div>
+  </div>
   
 </div>
 

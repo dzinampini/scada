@@ -68,6 +68,9 @@ $(document).ready(function(){
     $("#co").click(function(){
       $("#co-data").toggle();
     });
+    $("#ws").click(function(){
+      $("#ws-data").toggle();
+    });
 });
 </script>
 
@@ -78,6 +81,7 @@ $(document).ready(function(){
       refreshCH();
       refreshCO();
       refreshCT();
+      refreshWS(); 
     });
 
     function refreshWT(){
@@ -101,6 +105,11 @@ $(document).ready(function(){
     function refreshCO(){
         $('#co-data').load('_data_co.php', function(){
            setTimeout(refreshCO, 1000); //changing after every 10seconds
+        });
+    }
+    function refreshWS(){
+        $('#ws-data').load('_data_ws.php', function(){
+           setTimeout(refreshWS, 1000); //changing after every 10seconds
         });
     }
 </script>

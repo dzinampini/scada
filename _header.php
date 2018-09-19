@@ -32,7 +32,7 @@ while($row = mysqli_fetch_array($rs)){
 </head>
 
 <style>
-  #wt-data, #ch-data, #co-data{
+  #wt-data, #ch-data, #co-data, #ws-data{
     display:none;
   }
 

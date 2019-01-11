@@ -1,7 +1,9 @@
 <?php
 session_start();
 
-include 'opendb.php';
+include 'config.php';
+include 'model.php'; 
+
 $username=$_SESSION['username'];
 
 
@@ -13,46 +15,23 @@ if(!(isset($_SESSION['username']) && !empty($_SESSION['username']))) {
   exit;
 }
 
-$rs = mysqli_query($con, "select * from users where email = '$username'")or die(mysqli_error($con));
+$rs = mysqli_query($con, "SELECT * FROM brokers WHERE email = '$username'")or die(mysqli_error($con));
 
 while($row = mysqli_fetch_array($rs)){
    $id=$row['id'];
-   $email = $row['email'];
+   $username = $row['email'];
    $password = $row['password'];
    $fullname = $row['fullname'];
-   $role = $row['role'];
 } ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dendairy SCADA System</title>
+    <title><?php echo $system_name; ?></title>
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <link href="css/sb-admin.css" rel="stylesheet">
 </head>
-
-<style>
-  #wt-data, #ch-data, #co-data, #ws-data{
-    display:none;
-  }
-
-  .item-view{
-    padding:7px;
-  }
-
-  body{
-    background-image:url('images/body_bg.jpg');
-  }
-
-  .container{
-    background-color: white;
-    min-height:1000px;
-    /*margin:20px 20px 20px 20px;*/
-  }
-  .form-control{
-    color:white;
-  }
-</style>
 
 <body>
 
@@ -60,16 +39,18 @@ while($row = mysqli_fetch_array($rs)){
  <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Dendairy Web Based SCADA System</a>
+      <a class="navbar-brand" href="#"><?php echo $system_name; ?></a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="index.php">Home</a></li> <!-- class="active" -->
-      <li><a href="index.php"></a></li>
-      <li><a href="simulation.php">Simulation (values)</a></li>
-      <li><a href="real-time.php">Real Time View</a></li>
-      <li><a href="reports.php">Reports</a></li>
+      <li><a href="brokers.php">Manage Brokers</a></li>
+      <li><a href="customers.php">Manage Customers</a></li>
+      <li><a href="companies.php">Manage Companies & Price</a></li>
+      <li><a href="knowledge.php">Investment Knowledgebase</a></li>
+      <li><a href="accounts.php">Manage Accounts</a></li>
+      <li><a href="purchases.php">Manage Share Purchases</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $fullname; ?></a></li>
       <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
     </ul>
   </div>

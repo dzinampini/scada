@@ -1,11 +1,12 @@
-<?php session_start(); ?>
+<?php session_start();
+include('config.php'); ?>
 
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
 
-    <title>Dendairy SCADA System</title>
+    <title><?php echo $system_name; ?></title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -104,7 +105,7 @@ if (isset($_POST['submit'])){
         $password = md5($_POST["password"]);
 
         $result ="";
-        $query = "SELECT * FROM users WHERE email='$username' AND password = '$password'";
+        $query = "SELECT * FROM brokers WHERE email='$username' AND password = '$password'";
         $result = mysqli_query($con, $query);
         $rows=mysqli_fetch_array($result);
         $role=$rows['role'];
